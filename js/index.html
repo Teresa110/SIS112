@@ -1,17 +1,41 @@
 <!DOCTYPE html>
 <html>
 <head>
+
+    <script> 
+        function HolaMundo(){
+            alert("Hello World");
+        }
+
+        function ObtenerEdad(){
+            var edad = prompt("Insertar Edad", "99");
+            alert("Hola tu edad es: " + edad);
+        }
+
+        function CalcularEdad(){
+            var anioNacimiento = prompt("Inserta tu año de nacimiento", "2008")
+            alert("Tu edad es:" + (2024 - anioNacimiento))
+        }
+    </script>
+
 <title>NOMBRE WEB</title>
 
 </head>
 <body>
 
 
+
 <h1>Mi primera pagina web</h1>
 <p>UCB</p>
 
-<button type="button" click="HolaMundo()">
+<button type="button" onclick="HolaMundo()">
 Click Me HOLA MUNDO!</button>
+
+<button type="button" onclick="ObtenerEdad()">
+Click Me Obtener Edad</button>
+    
+<button type="button" onclick="CalcularEdad()">
+Click Me Calcular Edad</button>
 
 </body>
 </html>
