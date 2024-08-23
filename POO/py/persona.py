@@ -16,7 +16,9 @@ class Persona:
 
 # Crear una instancia de la clase Persona
 persona1 = Persona("Juan", 20, "Medicina")
+persona2 = Persona("Maria", 21, "Odontologia")
+
 
 #Llamar a los metodos
 persona1.saludar()
-persona1.estudiar()
+persona2.saludar()
