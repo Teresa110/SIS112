@@ -1,29 +1,119 @@
 class Persona {
-    constructor(nombre, edad, carrera) {
-        this.nombre = nombre;
-        this.edad = edad;
-        this.carrera = carrera;
+    constructor(nombre, edad, carrera, universidad) {
+      this.nombre = nombre;
+      this.edad = edad;
+      this.carrera = carrera;
+      this.universidad = universidad;
     }
-
+  
     saludar() {
-        console.log('Hola, mi nombre es' + this.nombre +'y tengo' + this.edad +'años.'); //print
+      return 'Hola, mi nombre es ' + this.nombre + ' y tengo ' + this.edad + ' años.'
+    }
+  
+    cumpleanios() {
+      return '¡Felicidades! tienes ' + this.edad + ' años.';
+    }
+  
+    estudiar() {
+      return 'Estoy estudiando ' + this.carrera;
+    }
+   
+    Universidad() {
+      return 'Estoy en la universidad ' + this.universidad;
     }
 
-    cumpleaños(){
-        this.edad = this.edad + 1;
-        console.log('¡Feliz Cumpleaños! Ahora tengo' + this.edad + ' años.'); //print
+
+    nuevosaludar() {
+        this.nombre = prompt('Introduce tu nombre:' + this.nombre)
+        return 'Hola, mi nombre es ' + this.nombre + ' y tengo ' + this.edad + ' años.'
     }
 
-    estudiar(){
-        console.log('Estoy estudiando' + this.carrera);
-    }
-}
-//Crear una instancia de la clase Persona
-//const persona1 = new Persona("Ana", 22, "ingenieria industrial"); //declara la variable
+    nuevocumpleanios() {
+        this.edad = prompt('Introduce tu edad:' + this.edad)
+        return '¡Felicidades! tienes ' + this.edad + ' años.';
 
-function SaludoPersona1(){
-    const persona1 = new Persona("Ana", 22, "Ingenieria Industrial");
-    //Llamar a los metodos
-    persona1.saludar();
-}
+    }
+
+    nuevoestudiar() {
+        this.carrera = prompt('Introduce la carrera que estudias:' + this.carrera)
+        return 'Estoy estudiando ' + this.carrera;
+    }
+
+    nuevauniversidad() {
+        this.universidad = prompt('Introduce la universidad donde estudias:' + this.universidad)
+        return 'Estoy en la universidad ' + this.universidad;
+    }
+  }
+  
+  // Crear una instancia de la clase Persona
+  const persona = new Persona('Teresa', 18, 'Ingeniería Industrial', 'UCB');
+  
+  // Inicializar los elementos HTML
+  const saludar = document.getElementById('saludar');
+  const edad = document.getElementById('edad');
+  const carrera = document.getElementById('carrera');
+  const universidad = document.getElementById('universidad');
+  
+  // Función para saludar
+  function botonSaludar() {
+    saludar.textContent = persona.saludar();
+  }
+  
+  // Función para cumpleaños
+  function botonCumpleanios() {
+    edad.textContent = persona.cumpleanios();
+  }
+  
+  // Función para estudiar
+  function botonEstudiar() {
+    carrera.textContent = persona.estudiar();
+  }
+
+  // Función para universidad
+  function botonUniversidad() {
+    universidad.textContent = persona.Universidad();
+
+  }
+
+  // Funcion introduce nombre
+  function botonIntroduce_Saludar() {
+    saludar.textContent = persona.nuevosaludar();
+  }
+
+  // Funcion introduce cumpleaños
+  function botonIntroduce_Edad() {
+    edad.textContent = persona.nuevocumpleanios();
+  }
+
+  // Funcion introduce estudiar
+  function botonIntroduce_Carrera() {
+    carrera.textContent = persona.nuevoestudiar();
+  }
+
+  // Funcion introduce universidad
+  function botonIntroduce_Universidad() {
+    universidad.textContent = persona.nuevauniversidad();
+  }
+
+ // Funcion eliminar nombre
+  function botonEliminar_Saludar() {
+    saludar.textContent = '';
+  }
+
+  //Funcion eliminar cumpleaños
+  function botonEliminar_Edad() {
+    edad.textContent = '';
+  }
+
+  // Funcion eliminar estudiar
+  function botonEliminar_Carrera() {
+    carrera.textContent = '';
+  }
+
+  // Funcion eliminar universidad
+
+  function botonEliminar_Universidad() {
+    universidad.textContent = '';
+  }
+
 
