@@ -24,23 +24,23 @@ class Persona {
 
 
     nuevosaludar() {
-        this.nombre = prompt('Introduce tu nombre:' + this.nombre)
+        this.nombre = prompt('Introduce tu nombre Por favor:')
         return 'Hola, mi nombre es ' + this.nombre + ' y tengo ' + this.edad + ' años.'
     }
 
     nuevocumpleanios() {
-        this.edad = prompt('Introduce tu edad:' + this.edad)
+        this.edad = prompt('Introduce tu edad Por favor:')
         return '¡Felicidades! tienes ' + this.edad + ' años.';
 
     }
 
     nuevoestudiar() {
-        this.carrera = prompt('Introduce la carrera que estudias:' + this.carrera)
+        this.carrera = prompt('Introduce la carrera que estudias Por favor:' )
         return 'Estoy estudiando ' + this.carrera;
     }
 
     nuevauniversidad() {
-        this.universidad = prompt('Introduce la universidad donde estudias:' + this.universidad)
+        this.universidad = prompt('Introduce la universidad donde estudias Por favor:')
         return 'Estoy en la universidad ' + this.universidad;
     }
   }
