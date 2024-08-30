@@ -7,7 +7,7 @@ class Persona {
     }
   
     saludar() {
-      return 'Hola, mi nombre es ' + this.nombre;
+      return 'Hola, mi nombre es' + this.nombre;
     }
   
     cumpleanios() {
@@ -46,7 +46,7 @@ class Persona {
   }
   
   // Crear una instancia de la clase Persona
-  const persona = new Persona('Teresa', 18, 'Ingeniería Industrial', 'UCB');
+  const persona = new Persona('Teresa', 18, 'Ingenieria Industrial', 'UCB');
   
   // Inicializar los elementos HTML
   const saludar = document.getElementById('saludar');
