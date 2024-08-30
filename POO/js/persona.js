@@ -7,7 +7,7 @@ class Persona {
     }
   
     saludar() {
-      return 'Hola, mi nombre es ' + this.nombre + ' y tengo ' + this.edad + ' años.'
+      return 'Hola, mi nombre es ' + this.nombre;
     }
   
     cumpleanios() {
@@ -25,7 +25,7 @@ class Persona {
 
     nuevosaludar() {
         this.nombre = prompt('Introduce tu nombre Por favor:')
-        return 'Hola, mi nombre es ' + this.nombre + ' y tengo ' + this.edad + ' años.'
+        return 'Hola, mi nombre es ' + this.nombre;
     }
 
     nuevocumpleanios() {
