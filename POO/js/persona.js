@@ -8,7 +8,7 @@ class Persona {
   
     saludar() {
       return 'Hola, mi nombre es ' + this.nombre;
-    }
+    }  
   
     cumpleanios() {
       return '¡Felicidades! tienes ' + this.edad + ' años.';
@@ -27,11 +27,9 @@ class Persona {
         this.nombre = prompt('Introduce tu nombre Por favor:')
         return 'Hola, mi nombre es ' + this.nombre;
     }
-
     nuevocumpleanios() {
         this.edad = prompt('Introduce tu edad Por favor:')
         return '¡Felicidades! tienes ' + this.edad + ' años.';
-
     }
 
     nuevoestudiar() {
