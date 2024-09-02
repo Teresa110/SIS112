@@ -9,7 +9,7 @@ class Persona:
         return f'Hola, mi nombre es {self.nombre}.'
 
     def cumpleanios(self):
-        return f'Felicidades! tienes {self.edad} anios.'
+        return f'Felicidades! tienes {self.edad} años.'
 
     def estudiar(self):
         return f'Estoy estudiando {self.carrera}.'
@@ -40,7 +40,7 @@ class Persona:
                     print("Edad invalida, debe ser un numero positivo")
             except ValueError:
                 print("La edad debe ser un número entero")
-        return f'Felicidades! tienes {self.edad} anios.'
+        return f'Felicidades! tienes {self.edad} años.'
 
     def modificar_carrera(self):
         while True:
@@ -80,11 +80,11 @@ class Persona:
         return "Universidad eliminada"
 
 
-persona = Persona('Teresa', 19, 'Ingenieria Industrial', 'UCB')
+persona = Persona('Teresa', 18, 'Ingenieria Industrial', 'UCB')
 
 # Menú 
 while True:
-    print("\nMenú:")
+    print("Menú:")
     print("1. Saludar")
     print("2. Edad")
     print("3. Carrera")
@@ -98,9 +98,9 @@ while True:
     print("11. Eliminar carrera")
     print("12. Eliminar universidad")
     print("13. Salir")
-
-    opcion = input("Ingrese una opción: ")
-
+    
+    opcion = input("Bienvenido, ingrese una opción: ")
+    
     if opcion == "1":
         print(persona.saludar())
     elif opcion == "2":
@@ -126,7 +126,7 @@ while True:
     elif opcion == "12":
         print(persona.eliminar_universidad())
     elif opcion == "13":
-        print("ADIOS")
+        print("ADIOS :)")
         break
     else:
-        print("Opcion invalida, porfavor solo ingrese las opciones dadas")
+        print("Opcion invalida, porfavor solo ingrese las opciones dentro del parametro")
