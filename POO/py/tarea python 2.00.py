@@ -129,4 +129,4 @@ while True:
         print("ADIOS :)")
         break
     else:
-        print("Opcion invalida, porfavor solo ingrese las opciones dentro del parametro")
+        print("Opcion invalida, porfavor solo ingrese las opciones dentro del parametro") 
