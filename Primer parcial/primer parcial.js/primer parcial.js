@@ -1,5 +1,5 @@
 class Materias {
-  constructor(nombremateria, sigla, docente, horario, aula, prerrequisito, carrera, universidad, cantidadinscritos) {
+  constructor(nombremateria, sigla, docente, horario, aula, prerrequisito, carrera, universidad, cantidadinscritos, modalidad, calificacion, temas, ubicacion) {
     this.nombremateria = nombremateria;
     this.sigla = sigla;
     this.docente = docente;
@@ -9,99 +9,162 @@ class Materias {
     this.carrera = carrera;
     this.universidad = universidad;
     this.cantidadinscritos = cantidadinscritos
+    this.modalidad = modalidad
+    this.calificacion = calificacion
+    this.temas = temas
+    this.ubicacion = ubicacion
   }
 
-
   Asignatura() {
-    return 'Materia: ' + this.nombremateria;
+    return 'Materia:' + this.nombremateria;
   }
 
   siglas() {
-    return 'Sigla: ' + this.sigla;
+    return 'Sigla ' + this.sigla;
   }
 
   Docente() {
-    return 'Docente:' + this.docente;
+    return 'Docente ' + this.docente;
   }
  
   Horario() {
-      return 'Horario: ' + this.horario;
+      return 'Horario ' + this.horario;
     }
 
   Aula(){
-      return 'Aula: ' + this.aula;
+      return 'Aula ' + this.aula;
   }
 
   Prerrequisito(){
-      return 'Prerequisito: ' + this.prerrequisito;
+      return 'Prerequisito ' + this.prerrequisito + ' para inscribir esta materia';
   }
 
   Carrera(){
-      return 'Carrera:' + this.carrera;
+      return 'Carrera: ' + this.carrera;
   }
 
   Universidad(){
-      return 'Universidad: ' + this.universidad;
+      return 'Universidad ' + this.universidad;
   }
 
   CantidadDeInscritos(){
-      return 'Inscritos: ' + this.cantidadinscritos;
+      return 'Cantidad Inscritos ' + this.cantidadinscritos;
+  }
+
+  Modalidad(){
+    return 'Modalidad ' + this.modalidad;
+  }
+
+  Calificacion(){
+    return 'Calificacion ' + this.calificacion;
+  }
+
+  Temas(){
+    return 'Temas: ' + this.temas;
+  }
+
+  Ubicacion(){
+    return 'Ubicacion ' + this.ubicacion;
   }
 
   //MODIFICAR ASIGNATURAS 
   Modificar_Asignatura(){
     this.nombremateria = prompt("Ingrese el nombre de la materia porfavor")
-    return 'Materia: ' + this.nombremateria;
+    return 'El nombre de esta materia es ' + this.nombremateria;
   }
 
   //MODIFICAR SIGLAS
   Modificar_Siglas() {
-      this.sigla = prompt("Ingrese la sigla porfavor ")
-      return 'Sigla: ' + this.sigla;
+      this.sigla = prompt("Ingrese la sigla de la materia porfavor ")
+      return 'La sigla de esta materia es ' + this.sigla;
   }
   
   //MODIFICAR DOCENTE
   Modificar_Docente() {
       this.docente = prompt("Ingrese el nombre del docente porfavor")
-      return 'Docente: ' + this.docente;
+      return 'El nombre del docente que da esta materia es ' + this.docente;
   }
   
   //MODIFICAR HORARIO
   Modificar_Horario(){
       this.horario = prompt("Ingrese el horario porfavor ")
-      return 'Horario: ' + this.horario;
+      return 'El horario de esta materia es ' + this.horario;
   }
 
   //MODIFICAR AULA
   Modificar_Aula(){
       this.aula = prompt("Ingrese el aula en que se da esta materia porfavor ")
-      return 'Aula: ' + this.aula;
+      return 'El aula donde se da esta materia es ' + this.aula;
   }
   
   //MODIFICAR PRERREQUISITO
   Modificar_Prerrequisito(){
       this.prerequisito = prompt("Ingrese el prerequisito de la materia porfavor ")
-      return 'Prerequisito: ' + this.prerrequisito;
+      return 'Estoy estudiando en la ' + this.prerrequisito;
   }
   
   //MODIFICAR CARRERA
   Modificar_Carrera(){
       this.carrera = prompt("Ingrese la carrera que estudia porfavor ")
-      return 'Carrera: ' + this.carrera;
+      return 'Esta materia es de la carrera de ' + this.carrera;
   }
 
   //MODIFICAR UNIVERSIDAD
   Modificar_Universidad(){
       this.universidad = prompt("Ingrese la universidad en la que estudia porfavor ")
-      return 'Universidad: ' + this.universidad;
+      return 'Estoy estudiando en la ' + this.universidad;
   }
   
   //MODIFICAR CANTIDAD DE INSCRITOS
   Modificar_CantidadDeInscritos(){
       this.cantidadinscritos = prompt("Ingrese la cantidad de inscritos porfavor ")
-      return 'Inscritos: ' + this.cantidadinscritos;
+      return 'El numero de inscritos de esta materia es ' + this.cantidadinscritos;
   }
 
+  //MODIFICAR MODALIDAD
+  Modificar_Modalidad() {
+    let opcionesValidas = ['presencial', 'online', 'hibrido'];
+    let inputModalidad;
+  
+    do {
+      inputModalidad = prompt("Ingrese la modalidad de la materia (presencial, online, hibrido)").toLowerCase();
+      if (!opcionesValidas.includes(inputModalidad)) {
+        alert('Opción inválida. Por favor ingrese una opción válida (presencial, online, hibrido).');
+      }
+    } while (!opcionesValidas.includes(inputModalidad));
+  
+    this.modalidad = inputModalidad;
+    return 'La modalidad de esta materia es ' + this.modalidad;
+  }
+  
+  //MODIFICAR CALIFICACION 
+  Modificar_Calificacion() {
+    let inputCalificacion;
+  
+    do {
+      inputCalificacion = prompt("Ingrese la calificación mínima de aprobación (0 a 100)");
+      if (isNaN(inputCalificacion) || inputCalificacion < 0 || inputCalificacion > 100) {
+        alert('Entrada inválida. Por favor ingrese un número entre 0 y 100.');
+      }
+    } while (isNaN(inputCalificacion) || inputCalificacion < 0 || inputCalificacion > 100);
+  
+    this.calificacion = inputCalificacion;
+    return 'La calificación mínima de aprobación para esta materia es ' + this.calificacion;
+  }
+  
+  
+  //MODIFICAR TEMAS 
+  Modificar_Temas(){
+    this.temas = prompt("Ingrese porfavor los temas de las maateria ")
+    return 'Los temas que se llevan en esta materia son ' + this.temas;
+  }
+
+  //MODIFICAR UBICACION
+  Modificar_Ubicacion(){
+    this.ubicacion = prompt("Ingrese una ubicacion en latitud y lateral porfavor ")
+    return 'La ubicacion en latitud y lateral donde se imparte esta materia es ' + this.ubicacion;
+  }
+  
   Eliminar_Asignatura() {
       return ""
   }
@@ -137,15 +200,32 @@ class Materias {
       return ""
   }
 
+  Eliminar_Modalidad() {
+    return ""
+  }
+
+  Elimiar_Calificacion() {
+    return ""
+  }
+
+  Eliminar_Temas() {
+    return ""
+  }
+
+  Eliminar_Ubicacion() {
+    return ""
+  }
+
+
 }
 
 // Crear una instancia de la clase Materia
-const materia1 = new Materias('CALCULO I', 'MAT-132', 'ASPIAZU MELGAR VICTOR HUGO', 'LUNES 07:30 - 09:00, MIERCOLES 07:30 - 09:00', '10 AULA A-N4', 'MAT-030', 'Ingenieria Industrial', 'UCB', '33');
-const materia2 = new Materias('ANTROPOLOGÍA Y VALORES', 'FHC-101', 'DE LA BARRA BARRA EXALTA GABRIELA', 'MARTES 09:10 - 10:40, JUEVES 09:10 - 10:40', 'MARTES 10 AULA A-N4, JUEVES B 2-1', 'NINGUNA', 'Ingenieria Industrial', 'UCB', '62');
-const materia3 = new Materias('FÍSICA I Y LABORATORIO', 'FIS-111', 'LOBO LIMPIAS VICTOR HUGO', 'LUNES 09:10 - 10:40, MIERCOLES 09:10 - 10:40', 'E 2-5', 'NINGUNA', 'Ingenieria Industrial', 'UCB', '45');
-const materia4 = new Materias('MANUFACTURA Y MECANIZADO', 'IND-112', 'SALVATIERRA ARANCIBIA JORGE ENRIQUE', 'MARTES 07:30 - 09:00, JUEVES 07:30 - 09:00, VIERNES 07:30 - 09:00', 'MARTES 12 AULA A-N4, JUEVES F 1-2 (LAB. PROCESOS), VIERNES F 1-2 (LAB. PROCESOS)', 'IND-111', 'Ingenieria Industrial', 'UCB', '14');
-const materia5 = new Materias('PROBABILIDAD Y ESTADÍSTICA I', 'MAT-142', 'BARCA MAGARZO CARMEN SILVIA', 'MARTES 10:50 - 12:20, JUEVES 10:50 - 12:20', 'D 2-1 (LAB. CÓMPUTO 2)', 'NINGUNA', 'Ingenieria Industrial', 'UCB', '33');
-const materia6 = new Materias('PROGRAMACIÓN I', 'SIS-112', 'ESCALANTE USTARIZ EDDY', 'LUNES 10:50 - 12:20, VIERNES 09:10 - 11:35', 'C 2-2 (LAB. CÓMPUTO 5)', 'SIS-111', 'Ingenieria Industrial', 'UCB', '15');
+const materia1 = new Materias('CALCULO I', 'MAT-132', 'ASPIAZU MELGAR VICTOR HUGO', 'LUNES 07:30 - 09:00, MIERCOLES 07:30 - 09:00', '10 AULA A-N4', 'MAT-030', 'Ingenieria Industrial', 'UCB', '33', 'presencial', '60', 'FUNCIONES, LIMITES, DERIVADAD, INTEGRALES', '-17.695191,-63.1514697');
+const materia2 = new Materias('ANTROPOLOGÍA Y VALORES', 'FHC-101', 'DE LA BARRA BARRA EXALTA GABRIELA', 'MARTES 09:10 - 10:40, JUEVES 09:10 - 10:40', 'MARTES 10 AULA A-N4, JUEVES B 2-1', 'NINGUNA', 'Ingenieria Industrial', 'UCB', '62', 'presencial', '60', 'LA BIBLIA, VALORES LA RESPONSABILIDAD SOCIAL', '-17.695191,-63.1514697' );
+const materia3 = new Materias('FÍSICA I Y LABORATORIO', 'FIS-111', 'LOBO LIMPIAS VICTOR HUGO', 'LUNES 09:10 - 10:40, MIERCOLES 09:10 - 10:40', 'E 2-5', 'NINGUNA', 'Ingenieria Industrial', 'UCB', '45', 'presencial', '60', 'MAGNITUDES, UNIDADES FISICAS Y VECTORES, CINEMATICA, DINAMICA, FUNDAMENTOS DE ENERGIA', '-17.695191,-63.1514697');
+const materia4 = new Materias('MANUFACTURA Y MECANIZADO', 'IND-112', 'SALVATIERRA ARANCIBIA JORGE ENRIQUE', 'MARTES 07:30 - 09:00, JUEVES 07:30 - 09:00, VIERNES 07:30 - 09:00', 'MARTES 12 AULA A-N4, JUEVES F 1-2 (LAB. PROCESOS), VIERNES F 1-2 (LAB. PROCESOS)', 'IND-111', 'Ingenieria Industrial', 'UCB', '14', 'presencial', '60', 'SOLDADURA, MANUFACTURA, FUNDICION', '-17.695191,-63.1514697');
+const materia5 = new Materias('PROBABILIDAD Y ESTADÍSTICA I', 'MAT-142', 'BARCA MAGARZO CARMEN SILVIA', 'MARTES 10:50 - 12:20, JUEVES 10:50 - 12:20', 'D 2-1 (LAB. CÓMPUTO 2)', 'NINGUNA', 'Ingenieria Industrial', 'UCB', '33', 'presencial', '60', 'ORGANIZACION DE DATOS', '-17.695191,-63.1514697');
+const materia6 = new Materias('PROGRAMACIÓN I', 'SIS-112', 'ESCALANTE USTARIZ EDDY', 'LUNES 10:50 - 12:20, VIERNES 09:10 - 11:35', 'C 2-2 (LAB. CÓMPUTO 5)', 'SIS-111', 'Ingenieria Industrial', 'UCB', '15', 'presencial', '60', 'INTRODUCCION A POO', '-17.695191,-63.1514697');
 
 // Inicializar los elementos HTML
 const nombremateria = document.getElementById('nombremateria');
@@ -157,6 +237,10 @@ const prerrequisito = document.getElementById('prerrequisito');
 const carrera = document.getElementById('carrera');
 const universidad = document.getElementById('universidad');
 const cantidadinscritos = document.getElementById('cantidadinscritos');
+const modalidad = document.getElementById('modalidad')
+const calificacion = document.getElementById('calificacion')
+const temas = document.getElementById('temas')
+const ubicacion = document.getElementById('ubicacion')
 
 function botonMateria1() {
   nombremateria.textContent = materia1.Asignatura();
@@ -168,6 +252,10 @@ function botonMateria1() {
   carrera.textContent = materia1.Carrera();
   universidad.textContent = materia1.Universidad();
   cantidadinscritos.textContent = materia1.CantidadDeInscritos();
+  modalidad.textContent = materia1.Modalidad();
+  calificacion.textContent = materia1.Calificacion();
+  temas.textContent = materia1.Temas();
+  ubicacion.textContent = materia1.Ubicacion();
 }
 
 function botonMateria2() {
@@ -180,6 +268,10 @@ function botonMateria2() {
   carrera.textContent = materia2.Carrera();
   universidad.textContent = materia2.Universidad();
   cantidadinscritos.textContent = materia2.CantidadDeInscritos();
+  modalidad.textContent = materia2.Modalidad();
+  calificacion.textContent = materia2.Calificacion();
+  temas.textContent = materia2.Temas();
+  ubicacion.textContent = materia2.Ubicacion();
 }
 
 function botonMateria3() {
@@ -192,6 +284,10 @@ function botonMateria3() {
   carrera.textContent = materia3.Carrera();
   universidad.textContent = materia3.Universidad();
   cantidadinscritos.textContent = materia3.CantidadDeInscritos();
+  modalidad.textContent = materia3.Modalidad();
+  calificacion.textContent = materia3.Calificacion();
+  temas.textContent = materia3.Temas();
+  ubicacion.textContent = materia3.Ubicacion();
 }
 
 function botonMateria4() {
@@ -204,6 +300,10 @@ function botonMateria4() {
   carrera.textContent = materia4.Carrera();
   universidad.textContent = materia4.Universidad();
   cantidadinscritos.textContent = materia4.CantidadDeInscritos();
+  modalidad.textContent = materia4.Modalidad();
+  calificacion.textContent = materia4.Calificacion();
+  temas.textContent = materia4.Temas();
+  ubicacion.textContent = materia4.Ubicacion();
 }
 
 function botonMateria5() {
@@ -216,6 +316,10 @@ function botonMateria5() {
   carrera.textContent = materia5.Carrera();
   universidad.textContent = materia5.Universidad();
   cantidadinscritos.textContent = materia5.CantidadDeInscritos();
+  modalidad.textContent = materia5.Modalidad();
+  calificacion.textContent = materia5.Calificacion();
+  temas.textContent = materia5.Temas();
+  ubicacion.textContent = materia5.Ubicacion();
 }
 
 function botonMateria6() {
@@ -228,6 +332,10 @@ function botonMateria6() {
   carrera.textContent = materia6.Carrera();
   universidad.textContent = materia6.Universidad();
   cantidadinscritos.textContent = materia6.CantidadDeInscritos();
+  modalidad.textContent = materia6.Modalidad();
+  calificacion.textContent = materia6.Calificacion();
+  temas.textContent = materia6.Temas();
+  ubicacion.textContent = materia6.Ubicacion();
 }
 
 //FUNCION MODIFICAR NOMBRE MATERIAS
@@ -410,6 +518,86 @@ function botonModificarCantidadInscritos6() {
   cantidadinscritos.textContent = materia6.Modificar_CantidadDeInscritos();
 }
 
+//FUNCION MODIFICAR MODALIDAD 
+function botonModificarModalidad1() {
+  modalidad.textContent = materia1.Modificar_Modalidad();
+}
+function botonModificarModalidad2() {
+  modalidad.textContent = materia2.Modificar_Modalidad();
+}
+function botonModificarModalidad3() {
+  modalidad.textContent = materia3.Modificar_Modalidad();
+}
+function botonModificarModalidad4() {
+  modalidad.textContent = materia4.Modificar_Modalidad();
+}
+function botonModificarModalidad5() {
+  modalidad.textContent = materia5.Modificar_Modalidad();
+}
+function botonModificarModalidad6() {
+  modalidad.textContent = materia6.Modificar_Modalidad();
+}
+
+//FUNCION MODIFICAR CALIFICACION
+function botonModificarCalifiacion1() {
+  calificacion.textContent = materia1.Modificar_Calificacion();
+}
+function botonModificarCalifiacion2() {
+  calificacion.textContent = materia2.Modificar_Calificacion();
+}
+function botonModificarCalifiacion3() {
+  calificacion.textContent = materia3.Modificar_Calificacion();
+}
+function botonModificarCalifiacion4() {
+  calificacion.textContent = materia4.Modificar_Calificacion();
+}
+function botonModificarCalifiacion5() {
+  calificacion.textContent = materia5.Modificar_Calificacion();
+}
+function botonModificarCalifiacion6() {
+  calificacion.textContent = materia6.Modificar_Calificacion();
+}
+
+//FUNCION MODIFICAR TEMAS
+function botonModificarTemas1() {
+  temas.textContent = materia1.Modificar_Temas();
+}
+function botonModificarTemas2() {
+  temas.textContent = materia2.Modificar_Temas();
+}
+function botonModificarTemas3() {
+  temas.textContent = materia3.Modificar_Temas();
+}
+function botonModificarTemas4() {
+  temas.textContent = materia4.Modificar_Temas();
+}
+function botonModificarTemas5() {
+  temas.textContent = materia5.Modificar_Temas();
+}
+function botonModificarTemas6() {
+  temas.textContent = materia6.Modificar_Temas();
+}
+
+//FUNCION MODIFICAR UBICACION
+function botonModificarUbicacion1() {
+  ubicacion.textContent = materia1.Modificar_Ubicacion();
+}
+function botonModificarUbicacion2() {
+  ubicacion.textContent = materia2.Modificar_Ubicacion();
+}
+function botonModificarUbicacion3() {
+  ubicacion.textContent = materia3.Modificar_Ubicacion();
+}
+function botonModificarUbicacion4() {
+  ubicacion.textContent = materia4.Modificar_Ubicacion();
+}
+function botonModificarUbicacion5() {
+  ubicacion.textContent = materia5.Modificar_Ubicacion();
+}
+function botonModificarUbicacion6() {
+  ubicacion.textContent = materia6.Modificar_Ubicacion();
+}
+
 //FUNCION ELIMINAR NOMBRE
 function botonEliminarNombreMateria() {
   nombremateria.textContent = materia1.Eliminar_Asignatura();
@@ -499,3 +687,44 @@ function botonEliminarCantidadInscritos() {
   cantidadinscritos.textContent = materia5.Eliminar_CantidadInscritos();
   cantidadinscritos.textContent = materia6.Eliminar_CantidadInscritos();
 }
+
+//FUNCION ELIMINAR MODALIDAD
+function botonEliminarModalidad() {
+  modalidad.textContent = materia1.Eliminar_Modalidad();
+  modalidad.textContent = materia2.Eliminar_Modalidad();
+  modalidad.textContent = materia3.Eliminar_Modalidad();
+  modalidad.textContent = materia4.Eliminar_Modalidad();
+  modalidad.textContent = materia5.Eliminar_Modalidad();
+  modalidad.textContent = materia6.Eliminar_Modalidad();
+}
+
+//FUNCION ELIMINAR CALIFICACION MINIMA
+function botonEliminarCalificacion() {
+  calificacion.textContent = materia1.Elimiar_Calificacion();
+  calificacion.textContent = materia2.Elimiar_Calificacion();
+  calificacion.textContent = materia3.Elimiar_Calificacion();
+  calificacion.textContent = materia4.Elimiar_Calificacion();
+  calificacion.textContent = materia5.Elimiar_Calificacion();
+  calificacion.textContent = materia6.Elimiar_Calificacion();
+}
+
+//FUNCION ELIMINAR TEMAS
+function botonEliminarTemas() {
+  temas.textContent = materia1.Eliminar_Temas();
+  temas.textContent = materia2.Eliminar_Temas();
+  temas.textContent = materia3.Eliminar_Temas();
+  temas.textContent = materia4.Eliminar_Temas();
+  temas.textContent = materia5.Eliminar_Temas();
+  temas.textContent = materia6.Eliminar_Temas();
+}
+
+//FUNCION ELIMINAR UBICACION
+function botonEliminarUbicacion() {
+  ubicacion.textContent = materia1.Eliminar_Universidad();
+  ubicacion.textContent = materia2.Eliminar_Universidad();
+  ubicacion.textContent = materia3.Eliminar_Universidad();
+  ubicacion.textContent = materia4.Eliminar_Universidad();
+  ubicacion.textContent = materia5.Eliminar_Universidad();
+  ubicacion.textContent = materia6.Eliminar_Universidad();
+}
+
