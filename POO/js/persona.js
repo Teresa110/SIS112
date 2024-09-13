@@ -1,29 +1,61 @@
 class Persona {
-    constructor(nombre, edad, carrera) {
-        this.nombre = nombre;
-        this.edad = edad;
-        this.carrera = carrera;
+    constructor(nombre, edad, carrera, universidad) {
+      this.nombre = nombre;
+      this.edad = edad;
+      this.carrera = carrera;
+      this.universidad = universidad;
     }
-
+  
     saludar() {
-        console.log('Hola, mi nombre es' + this.nombre +'y tengo' + this.edad +'años.'); //print
+      return 'Hola, mi nombre es ' + this.nombre + ' y tengo ' + this.edad + ' años.'
+    }
+  
+    cumpleanios() {
+      return '¡Felicidades! tienes ' + this.edad + ' años.';
+    }
+  
+    estudiar() {
+      return 'Estoy estudiando ' + this.carrera;
     }
 
-    cumpleaños(){
-        this.edad = this.edad + 1;
-        console.log('¡Feliz Cumpleaños! Ahora tengo' + this.edad + ' años.'); //print
+    Universidad(){
+      return 'Estoy en la universidad' + this.universidad;
     }
 
-    estudiar(){
-        console.log('Estoy estudiando' + this.carrera);
+    modificarsaludar(){
+        
     }
-}
-//Crear una instancia de la clase Persona
-//const persona1 = new Persona("Ana", 22, "ingenieria industrial"); //declara la variable
+  }
+  
+  // Crear una instancia de la clase Persona
+  const persona = new Persona('Teresa', 18, 'Ingeniería Industrial', 'UCB');
+  
+  // Inicializar los elementos HTML
+  const saludar = document.getElementById('saludar');
+  const edad = document.getElementById('edad');
+  const carrera = document.getElementById('carrera');
+  const universidad = document.getElementById('universidad2');
+  
+  // Función para saludar
+  function botonSaludar() {
+    saludar.textContent = persona.saludar();
+  }
+  
+  // Función para cumpleaños
+  function botonCumpleanios() {
+    edad.textContent = persona.cumpleanios();
+  }
+  
+  // Función para estudiar
+  function botonEstudiar() {
+    carrera.textContent = persona.estudiar();
+  }
 
-function SaludoPersona1(){
-    const persona1 = new Persona("Ana", 22, "Ingenieria Industrial");
-    //Llamar a los metodos
-    persona1.saludar();
-}
+   
+  // Función para UNIVERSIDAD
+  function botonUniversidad() {
+    universidad.textContent = persona.Universidad();
+  }
+
+
 
