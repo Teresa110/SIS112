@@ -44,8 +44,32 @@ class Entero {
             return false;
         }
     }
+    calcularfactorial(){
+        let num = parseInt()
 
+    if (isNaN(num)) {
+        alert("Por favor, ingresa un número válido.");
+        return;
+    }
+
+    if (num < 0) {
+        alert("No existe factorial para números negativos.");
+    } else if (num === 0 || num === 1) {
+        alert("El factorial de " + num + " es 1.");
+    } else {
+        let result = 1;
+        for (let i = 2; i <= num; i++) {
+            result *= i;
+        }
+        alert("El factorial de " + num + " es " + result + ".");
+    }
 }
+
+
+
+    }
+
+
 
 //Las funciones = button HTML
 var ClaseEntero = new Entero(0); //Se inicializo en 0
@@ -79,5 +103,9 @@ function esNegativoPositivoNum(){
     var respuesta = ClaseEntero.esNegativoPositivo();
     var resp = respuesta ? "Es Num positivo": "Es num negativo";
     ClaseEntero.showResultado(resp);
+
+}
+function calcularFactorial() {
+    
 
 }
