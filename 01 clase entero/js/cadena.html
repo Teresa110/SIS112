@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manipulación de Cadenas</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #e3f2fd;
+            color: #333;
+            text-align: center;
+            padding: 50px;
+            margin: 0;
+        }
+        h1 {
+            color: #1976d2;
+            margin-bottom: 30px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+        }
+        button {
+            background-color: #1976d2;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 5px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s, transform 0.2s;
+        }
+        button:hover {
+            background-color: #1565c0;
+            transform: translateY(-2px);
+        }
+        #resultado {
+            margin-top: 20px;
+            padding: 15px;
+            border: 2px solid #1976d2;
+            border-radius: 5px;
+            background-color: #bbdefb;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            font-size: 18px;
+        }
+        input {
+            padding: 10px;
+            margin: 10px 5px;
+            border-radius: 5px;
+            border: 2px solid #1976d2;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+        input:focus {
+            border-color: #1565c0;
+            outline: none;
+            box-shadow: 0 0 5px rgba(25, 118, 210, 0.5);
+        }
+        .button-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Manipulación de Cadenas</h1>
+    
+    <input type="text" id="inputCadena" placeholder="Introduce una cadena" />
+    
+    <button onclick="ejecutar('getCadena')">Obtener Cadena</button>
+    <button onclick="ejecutar('concatenar')">Concatenar</button>
+    <button onclick="ejecutar('invertir')">Invertir</button>
+    <button onclick="ejecutar('esVacia')">¿Es Vacía?</button>
+    <button onclick="ejecutar('contiene')">Contiene Subcadena</button>
+    <button onclick="ejecutar('comienzaCon')">Comienza Con</button>
+    <button onclick="ejecutar('terminaCon')">Termina Con</button>
+    <button onclick="ejecutar('longitud')">Longitud</button>
+    <button onclick="ejecutar('aMayusculas')">A Mayúsculas</button>
+    <button onclick="ejecutar('aMinusculas')">A Minúsculas</button>
+
+    <div id="resultado"></div>
+
+    <!-- Incluir el archivo JavaScript -->
+    <script src="cadena.js"></script>
+</body>
+</html>
