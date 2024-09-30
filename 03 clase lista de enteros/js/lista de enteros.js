@@ -19,66 +19,43 @@ class ListaEnteros {
     }
 
     ordenar() {
-        this.lista.sort((a, b) => a - b); // orden ascendente 
+        this.lista.sort((a, b) => a - b); // Orden ascendente
     }
 }
 
-const miLista = new ListaEnteros();
+let miLista = new ListaEnteros();
 
-document.getElementById('agregarBtn').addEventListener('click', () => {
-    const valorInput = document.getElementById('valor');
-    const valor = Number(valorInput.value);
-    
+function actualizarResultado() {
+    document.getElementById('result').innerHTML = `Resultado: [ ${miLista.lista.join(', ')} ]`;
+}
+
+function agregar() {
+    const valor = parseInt(document.getElementById('inputValor').value);
     if (!isNaN(valor)) {
         miLista.agregar(valor);
-        valorInput.value = '';
-        actualizarLista();
-    } else {
-        alert('Por favor, ingresa un número válido.');
+        actualizarResultado();
+        document.getElementById('inputValor').value = ''; // Limpiar input
     }
-});
+}
 
-document.getElementById('eliminarBtn').addEventListener('click', () => {
-    const valorInput = document.getElementById('valor');
-    const valor = Number(valorInput.value);
-    
+function eliminar() {
+    const valor = parseInt(document.getElementById('inputValor').value);
     if (!isNaN(valor)) {
         miLista.eliminar(valor);
-        valorInput.value = '';
-        actualizarLista();
-    } else {
-        alert('Por favor, ingresa un número válido.');
+        actualizarResultado();
+        document.getElementById('inputValor').value = ''; // Limpiar input
     }
-});
+}
 
-document.getElementById('buscarBtn').addEventListener('click', () => {
-    const valorInput = document.getElementById('valor');
-    const valor = Number(valorInput.value);
-    
+function buscar() {
+    const valor = parseInt(document.getElementById('inputValor').value);
     if (!isNaN(valor)) {
         const index = miLista.buscar(valor);
-        if (index !== -1) {
-            alert(`El número ${valor} se encuentra en la lista en la posición ${index}.`);
-        } else {
-            alert(`El número ${valor} no se encuentra en la lista.`);
-        }
-    } else {
-        alert('Por favor, ingresa un número válido.');
+        alert(index !== -1 ? `El número ${valor} está en la posición ${index}` : `${valor} no se encuentra en la lista.`);
     }
-});
+}
 
-document.getElementById('ordenarBtn').addEventListener('click', () => {
+function ordenar() {
     miLista.ordenar();
-    actualizarLista();
-});
-
-function actualizarLista() {
-    const listaUl = document.getElementById('lista');
-    listaUl.innerHTML = ''; // Limpiar la lista actual
-
-    miLista.lista.forEach(valor => {
-        const li = document.createElement('li');
-        li.textContent = valor;
-        listaUl.appendChild(li);
-    });
+    actualizarResultado();
 }
