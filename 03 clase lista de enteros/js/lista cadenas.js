@@ -92,7 +92,7 @@ console.log('La CADENA con mayor cantidad de caracteres es:' + miLista.lista[pos
 const miLista = new ListaCadenas();
 miLista.agregar('Hola');
 miLista.agregar('Mundo');
-miLista.agregar('Ucb');
+miLista.agregar('UCB SCZ INDUSTRIAL');
 
 // Inicializamos variables para el mayor y la posición
 let mayor = 0;
