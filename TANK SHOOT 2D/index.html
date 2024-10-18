@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tank Shoot 2D - Ultimate Gamer Style</title>
+    <style>
+        /* Global Styles */
+        body {
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: black;
+            font-family: 'Courier New', Courier, monospace;
+            overflow: hidden;
+        }
+
+        /* Container for all elements */
+        .container {
+            text-align: center;
+            color: #00FF9C;
+            text-shadow: 0 0 15px #00FF9C, 0 0 30px #00FF9C, 0 0 45px #00FF9C, 0 0 60px #00FF9C;
+            animation: pulse 2s infinite;
+            z-index: 2;
+        }
+
+        /* Pulse animation for glowing text */
+        @keyframes pulse {
+            0%, 100% {
+                text-shadow: 0 0 15px #00FF9C, 0 0 30px #00FF9C, 0 0 45px #00FF9C, 0 0 60px #00FF9C;
+            }
+            50% {
+                text-shadow: 0 0 5px #00FF9C, 0 0 10px #00FF9C, 0 0 20px #00FF9C, 0 0 30px #00FF9C;
+            }
+        }
+
+        .high-score {
+            font-size: 25px;
+            color: #ffffff;
+            margin-bottom: 20px;
+            text-shadow: 0 0 10px #ffffff, 0 0 20px #ffffff;
+            animation: flicker 2s infinite;
+        }
+
+        @keyframes flicker {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.7;
+            }
+        }
+
+        .game-title {
+            font-size: 60px;
+            letter-spacing: 7px;
+            margin-bottom: 10px;
+        }
+
+        .version {
+            font-size: 16px;
+            color: #ffffff;
+            margin: 20px 0;
+            text-shadow: 0 0 10px #ffffff, 0 0 20px #ffffff;
+        }
+
+        .game-button {
+            background-color: #333;
+            border: 3px solid #00FF9C;
+            color: #00FF9C;
+            font-size: 26px;
+            padding: 15px 50px;
+            cursor: pointer;
+            letter-spacing: 3px;
+            transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+            text-transform: uppercase;
+            text-shadow: 0 0 10px #00FF9C, 0 0 20px #00FF9C;
+            box-shadow: 0 0 10px #00FF9C, 0 0 20px #00FF9C;
+            animation: glow 1.5s infinite;
+        }
+
+        .game-button:hover {
+            background-color: #00FF9C;
+            color: black;
+            box-shadow: 0 0 20px #00FF9C, 0 0 40px #00FF9C, 0 0 60px #00FF9C;
+        }
+
+        @keyframes glow {
+            0%, 100% {
+                box-shadow: 0 0 20px #00FF9C, 0 0 40px #00FF9C, 0 0 60px #00FF9C;
+            }
+            50% {
+                box-shadow: 0 0 10px #00FF9C, 0 0 20px #00FF9C;
+            }
+        }
+
+        .website {
+            font-size: 16px;
+            color: #ffffff;
+            margin-top: 30px;
+            text-shadow: 0 0 10px #ffffff, 0 0 20px #ffffff;
+        }
+
+        /* Starry Background */
+        .background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, #001d38 10%, #000000 60%);
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        /* Animated Stars */
+        .star {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: white;
+            border-radius: 50%;
+            box-shadow: 0 0 5px white;
+            animation: twinkle 5s infinite ease-in-out;
+        }
+
+        @keyframes twinkle {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.5;
+            }
+        }
+
+        /* Particle Movement for Stars */
+        .particle {
+            animation: move 10s linear infinite;
+        }
+
+        @keyframes move {
+            0% {
+                transform: translateY(0);
+            }
+            100% {
+                transform: translateY(-1000px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="background">
+        <!-- Generating stars with JavaScript for dynamic effect -->
+    </div>
+
+    <div class="container">
+        <h1 class="high-score">HIGH SCORE 1700</h1>
+        <h1 class="game-title">TANK SHOOT 2D</h1>
+        <p class="version">Version 1.003 (c) DarkSun Tech 2010-2019</p>
+        <button class="game-button">1P GAME</button>
+        <p class="website">www.tankshoot.com</p>
+    </div>
+
+    <script>
+        // Create star particles dynamically
+        const background = document.querySelector('.background');
+        for (let i = 0; i < 100; i++) {
+            const star = document.createElement('div');
+            star.classList.add('star', 'particle');
+            star.style.left = Math.random() * 100 + 'vw';
+            star.style.top = Math.random() * 100 + 'vh';
+            star.style.animationDuration = Math.random() * 5 + 5 + 's';
+            background.appendChild(star);
+        }
+    </script>
+</body>
+</html>
