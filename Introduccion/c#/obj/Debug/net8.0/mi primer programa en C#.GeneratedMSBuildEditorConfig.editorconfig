@@ -8,6 +8,6 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = mi_primer_programa_en_C_
-build_property.ProjectDir = C:\UCB\Documents\GitHub\SIS112\mi primer programa en C#\
+build_property.ProjectDir = C:\GitHub\SIS112\Introduccion\c#\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
