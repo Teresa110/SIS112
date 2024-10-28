@@ -53,7 +53,14 @@ class Tank{
     }
 
 
+
+
+// Dibujamos los elementos en el canvas
+ drawTank(tank) {
+    ctx.fillStyle = 'green';
+    // Representamos el tanque como un cuadrado
+    ctx.fillRect(this.posX, this.posY, 50, 50);
+    }
+
+
 }
-
-
-

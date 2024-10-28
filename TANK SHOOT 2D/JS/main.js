@@ -1,16 +1,19 @@
 // Seleccionamos el canvas y el contexto
 const canvas = document.getElementById('gameCanvas');
 const ctx = canvas.getContext('2d');
+var utilsObj = new Utils();
 
 // Funcion para ajustar el tamaño del canvas a la ventana
 function resizeCanvas() {
     canvas.width = window.innerWidth * 0.9;
     canvas.height = window.innerHeight * 0.9;
 
-    canvas.width = Math.round(canvas.width/50) * 50;
-    canvas.height = Math.round(canvas.height/50) * 50;
+    
+    canvas.width = utilsObj.RoundTablero(canvas.width);
+    canvas.height = utilsObj.RoundTablero(canvas.height);
+    
 
-    console.log('width', canvas.with)
+    console.log('width', canvas.width)
     console.log('height', canvas.height)
 }
 
@@ -119,16 +122,67 @@ setInterval(() => {
 
 }, 100);
 
+const escenario = [ 
+    [ 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+    [ 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+    [ 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+    [ 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+    [ 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+    [ 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+    [ 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+    [ 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+    [ 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+    [ 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+    [ 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+    [ 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+    [ 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+    [ 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+    [ 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+    
+
+];
+
+function drawEscenario(ctx, escenario){
+    for(let row = 0; row < escenario.length; row++) {
+        for(let col = 0; col < escenario[row].length; col++) {
+            const cell = escenario[ row][ col];
+            const x = col * game.anchoCelda;
+            const y = row * game.altoCelda;
+
+
+            switch(cell) {
+                case 0: //Espacio vacio
+                    ctx.fillStyle = "black"
+                    ctx.fillRect(x, y, game.anchoCelda, game.altoCelda);
+                    break;
+                case 1: //Pared
+                    ctx.fillStyle = "gray"
+                    ctx.fillRect(x, y, game.anchoCelda, game.altoCelda);
+                    break;
+
+                default:
+                    break;
+                    
+
+            }
+        }
+    }
+}
+
 //Logica del juego (actualizacion de pantalla)
 function updateGame() {
     //Limpiamos el canvas en cada frame
     ctx.clearRect(0, 0, canvas.width, canvas.height);
+    //drawTank(playerTank);
 
-    drawTank(playerTank); //Dibujamos el tanque del jugador
-    drawEnemyTank(enemyTank1); // Dibujamos el tanque enemigo
-    drawEnemyTank(enemyTank2); // Dibujamos el tanque enemigo
-    drawEnemyTank(enemyTank3); // Dibujamos el tanque enemigo
-    drawEnemyTank(enemyTank4); // Dibujamos el tanque enemigo
+    drawEscenario(ctx, escenario);
+    playerTank.drawTank(ctx);
+
+    //drawTank(playerTank); //Dibujamos el tanque del jugador
+    enemyTank1.drawEnemyTank(ctx) // Dibujamos el tanque enemigo
+    enemyTank2.drawEnemyTank(ctx) // Dibujamos el tanque enemigo
+    enemyTank3.drawEnemyTank(ctx) // Dibujamos el tanque enemigo
+    enemyTank4.drawEnemyTank(ctx) // Dibujamos el tanque enemigo
   
 
 

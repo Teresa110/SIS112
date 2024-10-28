@@ -58,5 +58,14 @@ class EnemyTank{
         this.direccionDisparo = _direccionDisparo;
     }
 
+    // Dibujamos los elementos en el canvas
+    drawEnemyTank(ctx) {
+        ctx.fillStyle = 'red';
+        // Representamos el tanque como un cuadrado
+        ctx.fillRect(this.posX, this.posY, 50, 50);
+    }
+
 
 }
+
+
