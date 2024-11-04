@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galaga - Interfaz Gamer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <style>
+        /* Estilos básicos */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: black;
+            overflow: hidden;
+            font-family: 'Press Start 2P', cursive;
+            color: white;
+        }
+
+        /* Fondo de estrellas en movimiento */
+        .background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://www.transparenttextures.com/patterns/stardust.png') repeat;
+            animation: moveStars 20s linear infinite;
+            z-index: -1;
+        }
+
+        /* Movimiento del fondo de estrellas */
+        @keyframes moveStars {
+            from { background-position: 0 0; }
+            to { background-position: -1000px 1000px; }
+        }
+
+        /* Meteorito animado */
+        .meteor {
+            position: absolute;
+            top: -100px;
+            left: -100px;
+            width: 100px;
+            height: 100px;
+            background: radial-gradient(circle at 30% 30%, #cfb12b, #daa619, transparent);
+            border-radius: 50%;
+            box-shadow: 0 0 15px 5px #ff9100;
+            animation: meteorMove 5s linear infinite;
+            z-index: 0;
+        }
+
+        /* Animación del meteorito */
+        @keyframes meteorMove {
+            from { transform: translate(-100px, -100px) rotate(45deg); }
+            to { transform: translate(120vw, 120vh) rotate(45deg); }
+        }
+
+        /* Texto del logo estilo arcade con inclinación y destellos */
+        .logo-text {
+            font-size: 60px;
+            color: #FFD700; /* Amarillo */
+            text-shadow: 
+                -3px -3px 0px #000000, /* Sombra negra */
+                3px 3px 0px #FFD700, /* Sombra amarilla */
+                0px 0px 20px #FFD700,
+                0px 0px 30px #FFD700,
+                0px 0px 40px #FF4500; /* Sombra adicional naranja */
+            animation: glow 1.5s ease-in-out infinite alternate, sparkle 3s infinite;
+            transform: skew(-10deg); /* Inclinación */
+            position: relative;
+            z-index: 1;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        /* Animación de brillo */
+        @keyframes glow {
+            0% { text-shadow: 0 0 10px #FFD700, 0 0 20px #FF4500, 0 0 30px #FFD700; }
+            50% { text-shadow: 0 0 20px #FF4500, 0 0 30px #FFD700, 0 0 40px #FFD700; }
+            100% { text-shadow: 0 0 15px #FFD700, 0 0 25px #FFD700, 0 0 35px #FF4500; }
+        }
+
+        /* Animación de destellos */
+        @keyframes sparkle {
+            0%, 100% { color: #FFD700; }
+            50% { color: #FFFFE0; } /* Color más claro en el destello */
+        }
+
+        /* Botón estilo arcade */
+        .start-button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 15px 30px;
+            font-size: 20px;
+            font-family: 'Press Start 2P', cursive;
+            color: #fff;
+            background: #FF4500;
+            border: 3px solid #FFD700;
+            border-radius: 10px;
+            cursor: pointer;
+            text-transform: uppercase;
+            font-weight: bold;
+            box-shadow: 0px 0px 15px #FF4500, 0px 0px 25px #FFD700;
+            animation: pulse 1s infinite alternate;
+            position: relative;
+            z-index: 1;
+            transition: transform 0.2s;
+        }
+
+        /* Animación de pulsación */
+        @keyframes pulse {
+            0% { box-shadow: 0 0 20px #FFD700, 0 0 30px #FF4500, 0 0 40px #FF6347; }
+            100% { box-shadow: 0 0 40px #FF4500, 0 0 50px #FFD700, 0 0 60px #FF6347; }
+        }
+
+        /* Efecto hover en el botón */
+        .start-button:hover {
+            transform: scale(1.1);
+            background: #FFD700;
+            color: #000;
+            box-shadow: 0px 0px 25px #FF6347, 0px 0px 35px #FF4500;
+        }
+    </style>
+</head>
+<body>
+    <div class="background"></div>
+    <div class="meteor"></div> <!-- Meteorito animado en el fondo -->
+    <div class="logo-text">Galaga</div>
+    <div class="start-button">Jugar</div>
+</body>
+</html>
