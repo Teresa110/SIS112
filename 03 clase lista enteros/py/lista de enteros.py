@@ -1,6 +1,7 @@
 class ListaEnteros:
     def __init__(self):
         self.lista = []
+        
     def agregar(self, valor):
         self.lista.append(valor)
 
