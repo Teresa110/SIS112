@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("mi primer programa en C#")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f1400bbce906613d48c056100310594e817e3a79")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5276efc2a3f04dce958ce5ee9e147e5040f2c389")]
 [assembly: System.Reflection.AssemblyProductAttribute("mi primer programa en C#")]
 [assembly: System.Reflection.AssemblyTitleAttribute("mi primer programa en C#")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
