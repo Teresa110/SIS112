@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Cadenas</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            overflow: hidden;
+            background: #000;
+            color: #fff;
+        }
+
+        .container {
+            text-align: center;
+            position: relative;
+            z-index: 10;
+            animation: glow 1.5s infinite alternate;
+        }
+
+        @keyframes glow {
+            0% { text-shadow: 0 0 5px #4ecca3, 0 0 10px #4ecca3; }
+            100% { text-shadow: 0 0 20px #4ecca3, 0 0 30px #4ecca3; }
+        }
+
+        h1 {
+            margin: 20px 0;
+            font-size: 2.5rem;
+        }
+
+        input {
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            margin: 20px 0;
+            font-size: 1rem;
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            animation: glow 1.5s infinite alternate;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background: linear-gradient(45deg, #4ecca3, #1c7cd0);
+            color: white;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+            position: relative;
+            overflow: hidden;
+            animation: glow 1.5s infinite alternate;
+        }
+
+        button::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 300%;
+            height: 300%;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            transition: transform 0.5s ease;
+            z-index: 0;
+        }
+
+        button:hover::before {
+            transform: translate(-50%, -50%) scale(1);
+        }
+
+        button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        ul li {
+            padding: 10px;
+            border-bottom: 1px solid #444;
+        }
+
+        .stars {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .star {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle 1.5s infinite ease-in-out, move 5s linear infinite;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 1; }
+        }
+
+        @keyframes move {
+            0% { transform: translateY(-100%); }
+            100% { transform: translateY(100vh); }
+        }
+
+        /* Estilos para los dibujos bonitos */
+        .decor {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Star_Icon.svg/1200px-Star_Icon.svg.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            animation: float 3s infinite alternate;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-10px); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Lista de Cadenas</h1>
+        <input type="text" id="inputValor" placeholder="Ingresa un valor" />
+        <div class="button-container">
+            <button id="agregarBtn">Agregar</button>
+            <button id="eliminarBtn">Eliminar</button>
+            <button id="buscarBtn">Buscar</button>
+            <button id="ordenarBtn">Ordenar</button>
+        </div>
+        <h2>Lista:</h2>
+        <ul id="listaCadenas"></ul>
+        <div class="decor" style="top: 20%; left: 30%;"></div>
+        <div class="decor" style="top: 60%; left: 70%;"></div>
+        <div class="decor" style="top: 40%; left: 50%;"></div>
+    </div>
+
+    <script defer src="lista cadenas.js"></script>
+
+</body>
+</html>

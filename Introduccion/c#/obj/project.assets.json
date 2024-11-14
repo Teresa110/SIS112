@@ -8,23 +8,23 @@
     "net8.0": []
   },
   "packageFolders": {
-    "C:\\Users\\UCB\\.nuget\\packages\\": {},
+    "C:\\Users\\Lab05-13\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\UCB\\Documents\\GitHub\\SIS112\\mi primer programa en C#\\mi primer programa en C#.csproj",
+      "projectUniqueName": "C:\\GitHub\\SIS112\\Introduccion\\c#\\mi primer programa en C#.csproj",
       "projectName": "mi primer programa en C#",
-      "projectPath": "C:\\UCB\\Documents\\GitHub\\SIS112\\mi primer programa en C#\\mi primer programa en C#.csproj",
-      "packagesPath": "C:\\Users\\UCB\\.nuget\\packages\\",
-      "outputPath": "C:\\UCB\\Documents\\GitHub\\SIS112\\mi primer programa en C#\\obj\\",
+      "projectPath": "C:\\GitHub\\SIS112\\Introduccion\\c#\\mi primer programa en C#.csproj",
+      "packagesPath": "C:\\Users\\Lab05-13\\.nuget\\packages\\",
+      "outputPath": "C:\\GitHub\\SIS112\\Introduccion\\c#\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\UCB\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Lab05-13\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
